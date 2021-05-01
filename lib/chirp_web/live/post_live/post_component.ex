@@ -6,7 +6,9 @@ defmodule ChirpWeb.PostLive.PostComponent do
     <div id="post-<%= @post.id %>" class="post">
       <div class="row">
         <div class="column column-10">
-          <div class="post-avatar"></div>
+          <div class="post-avatar">
+            <img src="https://avatarfiles.alphacoders.com/103/103373.png" height="32" alt="<%= @post.username %>">
+          </div>
         </div>
         <div class="column column-90 post-body">
           <b>@<%= @post.username %></b>
@@ -20,7 +22,7 @@ defmodule ChirpWeb.PostLive.PostComponent do
           <i class="far fa-heart"></i> <%= @post.likes_count %>
         </div>
         <div class=column>
-          <i class="far fa-retweet"></i> <%= @post.reposts_count %>
+          <i class="fa fa-retweet"></i> <%= @post.reposts_count %>
         </div>
         <div class="column">
           <%= live_patch to: Routes.post_index_path(@socket, :edit, @post.id) do %>
