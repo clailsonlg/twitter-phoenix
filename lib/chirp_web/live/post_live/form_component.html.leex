@@ -6,8 +6,25 @@
   phx_change: "validate",
   phx_submit: "save" %>
 
+  <%= text_input f, :body %>
   <%= textarea f, :body %>
   <%= error_tag f, :body %>
+
+  <%= live_file_input @uploads.photo %>
+
+  <%= for entry <- @uploads.photo.entries do %>
+    <div class="row">
+      <div class="column">
+        <%= live_img_preview entry, height: 80 %>
+      </div>
+      <div class="column">
+        <progress max="100" value="<%= entry.progress %>"/>
+      </div>
+      <div class="column">
+        cancel
+      </div>
+    </div>
+  <% end %>
 
   <%= submit "Save", phx_disable_with: "Saving..." %>
 </form>

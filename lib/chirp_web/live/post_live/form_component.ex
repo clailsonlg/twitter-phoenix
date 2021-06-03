@@ -2,6 +2,12 @@ defmodule ChirpWeb.PostLive.FormComponent do
   use ChirpWeb, :live_component
 
   alias Chirp.Timeline
+  alias Chirp.Timeline.Post
+
+  @impl true
+  def mount(socket) do
+    {:ok, allow_upload(socket, :photo, accept: ~w(.png .jpeg .jpg), max_entries: 2)}
+  end
 
   @impl true
   def update(%{post: post} = assigns, socket) do
