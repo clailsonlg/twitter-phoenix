@@ -20,7 +20,7 @@ defmodule ChirpWeb.PostLive.PostComponent do
       <div class="row">
         <div class=column>
           <a href="#" phx-click="like" phx-target="<%= @myself %>">
-            <i class="far fa-heart"></i> <%= @post.likes_count %>
+            <i class="fa fa-heart"></i> <%= @post.likes_count %>
           </a>
         </div>
         <div class=column>
@@ -30,10 +30,10 @@ defmodule ChirpWeb.PostLive.PostComponent do
         </div>
         <div class="column">
           <%= live_patch to: Routes.post_index_path(@socket, :edit, @post.id) do %>
-            <i class="far fa-edit"></i>
+            <i class="fa fa-edit"></i>
           <% end %>
           <%= link to: "#", phx_click: "delete", phx_value_id: @post.id, data: [confirm: "Are you sure?"] do %>
-            <i class="far fa-trash-alt"></i>
+            <i class="fa fa-trash-alt"></i>
           <% end %>
         </div>
       </div>
